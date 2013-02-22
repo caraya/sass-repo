@@ -1,0 +1,54 @@
+/*
+	Printe page definitions according to the CSS 3 Paged Media
+	
+	See  for an example
+*/
+
+@page {
+  size: 5.5in 8.5in;
+}
+
+@page chapters:left { /* left page setup */
+  margin: 0.75in 0.75in 1.125in 0.62in;
+  padding-left: 0.5in;
+
+	@bottom-left { /* verso running footer */
+    content: counter(page)" "string(Booktitle);
+	}
+}
+
+@page chapters:right { /* right page setup */
+  margin: 0.75in 0.62in 1.125in 0.75in;
+  padding-right: 0.5in;
+
+  @bottom-right { /* recto running footer */
+    content: string(Chapter)" "counter(page
+	}
+}
+
+@page :blank {
+  @top-center { content: "This page is intentionally left blank" }
+}
+
+/*
+	Counters for chapters and figures. 
+	
+	We'll have to tweak the css selectors and the text 
+*/
+
+section.chapter > div.titlepage > div > div > h2.title:before {
+counter-increment: ChapterNo;
+content: "Chapter " counter(ChapterNo);
+}
+div.figure-title:before {
+counter-increment: FigureNo;
+content: "Figure " counter(ChapterNo)"-" counter(FigureNo)": ";
+}
+section.chapter {
+counter-reset: ChapterNo FigureNo;
+}
+
+div.row {
+page: chapters;
+}
+

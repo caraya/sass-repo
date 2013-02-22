@@ -1,0 +1,48 @@
+/*
+	Headings
+*/
+.fontface h1, .fontface h3, .fontface h4, .fontface h5, .fontface h6 {
+//	font-family: 'CallunaSans', Georgia, serif;
+	font-family: 'source-sans-pro', Georgia, serif;
+}	
+
+.fontface h2 {
+	font-family: 'museo-slab', Georgia, serif;
+	font-weight: 700;	
+}
+h1 {
+  font-size: 54px;
+	line-height: 62px;
+  text-align: center;
+	font-weight:600;
+}
+
+h2 {
+  font-size: 30px;
+	margin-top: 60px;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #000;
+	display: block;
+  margin-left: -60px;
+  width: 850px;
+}
+
+h3 {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+//  font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+h4 {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+// font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-weight: 700;}
