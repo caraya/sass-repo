@@ -12,6 +12,7 @@ I chose SASS as my pre-processor option because I consider it the cleanest solut
 
 ##Compile Stylesheets
 
+###Watching a folder for dynamic updates
 ##How do the snippets work
 
 ###What they are
