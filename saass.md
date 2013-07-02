@@ -6,13 +6,14 @@ I chose SASS as my pre-processor option because I consider it the cleanest solut
 
 ##What is SASS
 
+SASS (Syntactically Aware Style Sheets) is a superset of CSS3 which offers additional functionality such as: variables (never again type the same value over and over in a stylesheet), nesting, mixins and selector inheritance
+
 ###Install SASS
 
 ###Build index file
 
 ##Compile Stylesheets
 
-###Watching a folder for dynamic updates
 ##How do the snippets work
 
 ###What they are
