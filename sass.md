@@ -12,13 +12,15 @@ SASS (Syntactically Aware Style Sheets) is a superset of CSS3 which offers addit
 
 Rather than having to type the same name or value over and over again, SASS allows you to create variables that you can use throughout your stylesheets. For example we can define our colors as variables and then use the variables wherever we would use the color definition. 
 
->$red: #cc092f;
+'''css
+$red: #cc092f;
 
->/* Link Formatting */
+/* Link Formatting */
 
->a {
-> color: $red;
->}
+a {
+  color: $red;
+}
+'''
 
 The main advantage of variables is that we need to only change one value and then recompile the stylesheet for the changes to be reflected everywhere the variable appeared in the document. 
 
