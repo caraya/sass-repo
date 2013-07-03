@@ -54,7 +54,7 @@ $red: #cc092f;
   column-gap: $gap;
 }
 
-//@import "_fonts";
+@import "_font-declarations";
 @import "_multimedia";
 
 /*
@@ -135,5 +135,6 @@ aside h3 {
 }
 
 /*
-Place Holder for Media Queries
-*/ 
+  Import Media Queries
+ */ 
+@import "_media-queries";
