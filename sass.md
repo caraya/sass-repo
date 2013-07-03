@@ -6,7 +6,23 @@ I chose SASS as my pre-processor option because I consider it the cleanest solut
 
 ##What is SASS
 
-SASS (Syntactically Aware Style Sheets) is a superset of CSS3 which offers additional functionality such as: variables (never again type the same value over and over in a stylesheet), nesting, mixins and selector inheritance
+SASS (Syntactically Aware Style Sheets) is a superset of CSS3 which offers additional functionalizty such as: variables, nesting, mixins, selector inheritance, include files and live updates. We will cover these elements briefly.
+
+###Variables
+
+Rather than having to type the same name or value over and over again, SASS allows you to create variables that you can use throughout your stylesheets. For example we can define our colors as variables and then use the variables wherever we would use the color definition. 
+
+>$red: #cc092f;
+
+>/* Link Formatting */
+
+>a {
+> color: $red;
+>}
+
+The main advantage of variables is that we need to only change one value and then recompile the stylesheet for the changes to be reflected everywhere the variable appeared in the document. 
+
+###Nesting
 
 ###Install SASS
 
