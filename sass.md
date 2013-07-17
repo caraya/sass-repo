@@ -57,11 +57,39 @@ h2 {
   }
 }
 ```
-And it will produce the same result as it would coding straight CSS. In the example above it's easy to see the result
+And it will produce the same result as it would coding straight CSS. In the example above it's easy to see the result but when you start nesting deeper than two levels you can see how useful this feature is.
 
-###Install SASS
+### Mixins
 
-###Build index file
+One of the most powerful features of SASS are mixins; the ability to insert code in multiple places throughout your stylesheets. For example, you can define a mixin for the border properties of an element:
+
+```sass
+@mixin solid-thin {
+  border-width: thin;
+  border-style: solid;
+}
+```
+
+And call it from anywhere in your document using something like:
+
+```sass
+.video video {
+  margin: 20px auto;
+  border-color: $red;
+  @include solid-thin;
+}
+```
+
+Once again, if we need to make changes we make them where the @mixin declaration is made and it will be reflected everywhere we include the mixin using the @include tag.
+
+You can use mixins to further modularize your code and to make it easier to maintain. The mixins and variables don't need to be included in the same file. 
+### Inheritance
+
+# Generating Stylesheets
+
+##Install SASS
+
+##Build index file
 
 ##Compile Stylesheets
 
