@@ -82,7 +82,9 @@ And call it from anywhere in your document using something like:
 
 Once again, if we need to make changes we make them where the @mixin declaration is made and it will be reflected everywhere we include the mixin using the @include tag.
 
-You can use mixins to further modularize your code and to make it easier to maintain. The mixins and variables don't need to be included in the same file. 
+You can use mixins to further modularize your code and to make it easier to maintain. The mixins and variables don't need to be included in the same file. We will discuss modularization later in this document.
+
+Another use of mixins is for testing. Rather than write the same piece of code over and over throughout your stylesheets. For example let's say that you're not sure if you want your border to be thin or thick (two predefined values in the CSS standard) 
 ### Inheritance
 
 # Generating Stylesheets
