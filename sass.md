@@ -26,7 +26,7 @@ The main advantage of variables is that we need to only change one value and the
 
 ###Nesting
 
-How many times you've found yourself creating CSS like this. 
+How many times you've found yourself creating CSS like this.
 
 ```sass
 h2 {
