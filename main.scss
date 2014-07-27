@@ -6,18 +6,19 @@ Updated:    12/14/12
 Updated by: Carlos
 --------------------------------
 */
-@import "_reset";
+@import "_normalize";
+@import "_font-declaration";
 
 // SASS vriables and mixins
 $red: #cc092f;
 
 @mixin solid-thin {
-	border-width: thin;
+  border-width: thin;
   border-style: solid;
 }
 
 @mixin align-bullets {
-	padding-left: 1em;
+  padding-left: 1em;
   text-indent: -1em;
 }
 
@@ -32,10 +33,8 @@ $red: #cc092f;
 // 16 * 2.0 = 32px
 //
 @mixin font-attributes {
-	font-size: 100%;
-	line-height:1.75;
-  font-style: normal;
-  font-weight: normal;
+  font-size: 100%;
+  line-height:1.75;
 }
 
 // This mixin will create column attributes for the element it's called in
@@ -77,9 +76,8 @@ a {
 	The second assigns standard fonts to browsers that don't
 */
 .fontface body {
-  font-family: "source-sans-pro", Verdana, Helvetica, sans-serif;
-	font-weight: 400;
-	@include font-attributes;
+  @include font-declaration("source-sans-pro", 400, normal);
+  @include font-attributes;
 }
 
 
@@ -130,16 +128,13 @@ aside.lowlight:hover {
 }
 
 aside h3 {
-	text-align: center;
-	padding-left: 20px;
+  text-align: center;
+  padding-left: 20px;
 }
 
 /*
   Import Media Queries
-<<<<<<< HEAD
- */
+
 @import "_media-queries";
-=======
- */ 
-//@import "_media-queries";
->>>>>>> FETCH_HEAD
+ */
+

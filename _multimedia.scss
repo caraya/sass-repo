@@ -1,17 +1,11 @@
-/* 	
-	Starting code for the page. Media queries will modify this code 
-	to make the site work better with other devices. 
-
-*/
-
 /*
-	iframe format for embedded content 
+	iframe format for embedded content
 */
 iframe {
   display: block;
   margin: 20px auto;
-	border-color: $red;
-	@include solid-thin;
+  border-color: $red;
+  @include solid-thin;
 }
 
 /*
@@ -20,5 +14,5 @@ iframe {
 .video video {
   margin: 20px auto;
   border-color: $red;
-	@include solid-thin;
+  @include solid-thin;
 }
