@@ -54,7 +54,7 @@ $red: #cc092f;
   column-gap: $gap;
 }
 
-@import "_font-declarations";
+//@import "_font-declarations";
 @import "_multimedia";
 
 /*
@@ -136,5 +136,10 @@ aside h3 {
 
 /*
   Import Media Queries
+<<<<<<< HEAD
  */
 @import "_media-queries";
+=======
+ */ 
+//@import "_media-queries";
+>>>>>>> FETCH_HEAD
