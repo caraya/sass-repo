@@ -1,10 +1,10 @@
-/* 
+/*
 --------------------------------
 Site:       Ebook Essay
 CSS author: Carlos
 Updated:    12/14/12
 Updated by: Carlos
--------------------------------- 
+--------------------------------
 */
 @import "_reset";
 
@@ -13,7 +13,7 @@ $red: #cc092f;
 
 @mixin solid-thin {
 	border-width: thin;
-  border-style: solid; 
+  border-style: solid;
 }
 
 @mixin align-bullets {
@@ -21,7 +21,7 @@ $red: #cc092f;
   text-indent: -1em;
 }
 
-// 
+//
 // Default size is 16px
 //
 // Calculations for line height
@@ -32,14 +32,14 @@ $red: #cc092f;
 // 16 * 2.0 = 32px
 //
 @mixin font-attributes {
-	font-size: 100%;  
-	line-height:1.75; 
+	font-size: 100%;
+	line-height:1.75;
   font-style: normal;
   font-weight: normal;
 }
 
 // This mixin will create column attributes for the element it's called in
-// It uses variables to make life easier. Rather than code multiple attribute 
+// It uses variables to make life easier. Rather than code multiple attribute
 // sets we use a single set that takes 2 attributes.
 //
 // $cols indicates the number of columns to use
@@ -71,8 +71,8 @@ a {
 @import "_headings";
 
 /*
-	Assignment of font to body. 
-	
+	Assignment of font to body.
+
 	The first one assigns fonts to the browsers that support @fontface
 	The second assigns standard fonts to browsers that don't
 */
@@ -102,8 +102,8 @@ strong {
   font-style: normal;
 }
 
-/* 
-	CSS Reflections 
+/*
+	CSS Reflections
 	See: http://designshack.net/articles/css/mastering-css-reflections-in-webkit/
 
 .cssreflections .reflections {
@@ -136,5 +136,5 @@ aside h3 {
 
 /*
   Import Media Queries
- */ 
+ */
 @import "_media-queries";
