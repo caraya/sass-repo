@@ -1,0 +1,30 @@
+/*
+  Assignment of font to body.
+
+  The first one assigns fonts to the browsers that support @fontface
+  The second assigns standard fonts to browsers that don't
+*/
+.fontface body {
+  @include font-declaration("source-sans-pro", 400, normal);
+  @include font-attributes;
+}
+
+
+/*
+  Formatting for different tags and elements
+*/
+p {
+  margin-top: 15px;
+  em {
+    font-style: italic;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+strong {
+  font-weight: bold;
+  font-style: normal;
+}

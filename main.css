@@ -1,0 +1,793 @@
+/*
+--------------------------------
+Site:       Ebook Essay
+CSS author: Carlos
+Updated:    12/14/12
+Updated by: Carlos
+--------------------------------
+*/
+/*
+We use a single file to declare all our Mixins to make sure we know where to find them rather
+than have to search all files
+*/
+/*
+The following mixins are from http://web-design-weekly.com/2013/05/12/handy-sass-mixins/
+*/
+/*
+  Positioning mixins
+*/
+/* line 13, _normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* line 29, _normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/* line 42, _normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* line 52, _normalize.scss */
+[hidden], template {
+  display: none;
+}
+
+/* line 65, _normalize.scss */
+html {
+  background: white;
+  color: black;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 77, _normalize.scss */
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+
+/* line 87, _normalize.scss */
+body {
+  margin: 0;
+}
+
+/* line 100, _normalize.scss */
+a {
+  background: transparent;
+}
+/* line 107, _normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+/* line 113, _normalize.scss */
+a:hover, a:active {
+  outline: 0;
+}
+
+/* line 127, _normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* line 132, _normalize.scss */
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+
+/* line 137, _normalize.scss */
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+/* line 142, _normalize.scss */
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+
+/* line 147, _normalize.scss */
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+
+/* line 152, _normalize.scss */
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0;
+}
+
+/* line 160, _normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 166, _normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* line 179, _normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/* line 185, _normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* line 201, _normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/* line 214, _normalize.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 222, _normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/* line 237, _normalize.scss */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+/* line 245, _normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/* line 252, _normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 260, _normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 264, _normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 316, _normalize.scss */
+img {
+  border: 0;
+}
+
+/* line 325, _normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 335, _normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* line 352, _normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/* line 363, _normalize.scss */
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+}
+
+/* line 377, _normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+/* line 392, _normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/* line 402, _normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/* line 415, _normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* line 428, _normalize.scss */
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+/* line 438, _normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* line 451, _normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* line 461, _normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 470, _normalize.scss */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 479, _normalize.scss */
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+/* line 490, _normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+	iframe format for embedded content
+*/
+/* line 4, _multimedia.scss */
+iframe {
+  display: block;
+  margin: 20px auto;
+  border-color: #cc092f;
+  border-width: thin;
+  border-style: solid;
+}
+
+/*
+	video tag format
+*/
+/* line 14, _multimedia.scss */
+.video video {
+  margin: 20px auto;
+  border-color: #cc092f;
+  border-width: thin;
+  border-style: solid;
+}
+
+/*
+  Link Formatting
+*/
+/* line 4, _links.scss */
+a {
+  color: #cc092f;
+}
+/* line 7, _links.scss */
+a [href]:hover {
+  background: #ffa;
+}
+
+/*
+  Headings
+*/
+/* line 5, _headings.scss */
+.fontface h1
+.fontface h2
+.fontface h3
+.fontface h4
+.fontface h5
+.fontface h6 {
+  font-family: '$font-family';
+  src: url("$font-family.eot?") format("eot"), url("$font-family.woff") format("woff"), url("$font-family.ttf") format("truetype"), url("$font-family.svg#$font-name") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* line 14, _headings.scss */
+h1 {
+  text-align: center;
+  font-weight: 600;
+}
+
+/* line 19, _headings.scss */
+h2 {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #000;
+  margin-left: -60px;
+  width: 100%;
+}
+
+/* line 28, _headings.scss */
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* line 35, _headings.scss */
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 2, _lists.scss */
+ul li {
+  list-style-type: square;
+  list-style-position: inside;
+}
+
+/*
+Columns styles
+*/
+/* line 5, _columns.scss */
+.csscolumns .columns2 {
+  width: 100%;
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 20px;
+}
+
+/* line 10, _columns.scss */
+.csscolumns .columns3 {
+  width: 100%;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  column-count: 3;
+  column-gap: 10px;
+}
+/* line 14, _columns.scss */
+.csscolumns .columns3 .listed {
+  list-style: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*
+	Formating for different types of marginalia content
+*/
+/* line 5, _marginalia.scss */
+aside {
+  width: 100%;
+  padding-bottom: .5em;
+  padding-top: .5em;
+  border-top: 3px double #ddd;
+  border-bottom: 3px double #ddd;
+  color: #666;
+  line-height: 1.4em;
+  font-size: 1.8em;
+}
+
+/* line 16, _marginalia.scss */
+aside.pull {
+  margin-left: -20%;
+  margin-top: .2em;
+  margin-bottom: .5em;
+}
+
+/* line 21, _marginalia.scss */
+blockquote {
+  margin-left: 1em;
+  margin-bottom: 1em;
+  font-style: italic;
+}
+/* line 26, _marginalia.scss */
+blockquote .opening {
+  font-size: 2em;
+  text-align: center;
+  border-top: 3px double #ddd;
+  padding-top: 2em;
+  border-bottom: 3px double #ddd;
+  padding-bottom: 2em;
+  margin-bottom: 10em;
+}
+
+/*
+	Do I even need this?
+
+blockquote.info {
+  margin: 0 auto;
+  width: 80%;
+  padding: 30px;
+  border: 1px solid #000;
+
+	ul.info-list {
+	  list-style: none;
+	}
+	
+	ul.info-list li {
+		text-indent: 0px;
+	}
+}
+
+blockquote.pullquote {
+  float: left;
+  width: 350px;
+  color: #666;
+  text-align: right;
+  margin-left: -200px;
+  margin-top: -7px;
+  margin-right: 20px;
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+blockquote.pullquote.small {
+  width: 230px;
+  margin-left: -200px;
+  margin-right: 20px;
+  font-size: 1.5em;
+  line-height: 1.4em;
+  text-align: right;
+  margin-top: 2px double #666;
+  margin-bottom: 2px double #666;
+	float: left;
+  font-size: 1.4em;
+  line-height: 1.4em;
+}
+*/
+/* line 80, _marginalia.scss */
+.margin-notes,
+.content-left {
+  width: 230px;
+  margin-left: -230px;
+  margin-right: 20px;
+  text-align: right;
+  font-size: .75em;
+}
+
+/* line 89, _marginalia.scss */
+.margin-notes-right,
+.content-right {
+  width: 230px;
+  margin-left: 760px;
+  margin-right: -20px;
+  text-align: left;
+  font-size: .75em;
+  position: absolute;
+}
+
+/* line 99, _marginalia.scss */
+.content-right {
+  width: 230px;
+  margin-left: 760px;
+  margin-right: -20px;
+  text-align: left;
+  font-size: .75em;
+  position: absolute;
+}
+
+/* line 108, _marginalia.scss */
+.content-right ul,
+.content-left ul {
+  list-style: none;
+}
+
+/*
+	TOC styles
+*/
+/* line 4, _toc.scss */
+#toc {
+  width: 200px;
+  float: right;
+  font-family: "Palatino", Georgia, Times, Serif;
+  padding: 10px 0;
+  background-color: #eee;
+  color: #000;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-left: 20px;
+}
+/* line 20, _toc.scss */
+#toc h4 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1em;
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+}
+/* line 29, _toc.scss */
+#toc ul {
+  padding-top: 15px;
+  border-top: 1px solid #555;
+}
+/* line 34, _toc.scss */
+#toc ul.first {
+  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+}
+/* line 39, _toc.scss */
+#toc ul li {
+  font-size: 0.85em;
+  list-style: lower-alpha;
+  margin-left: 30px;
+  list-style-position: outside;
+}
+/* line 46, _toc.scss */
+#toc ul.first li {
+  font-size: 0.85em;
+  list-style: decimal;
+}
+/* line 51, _toc.scss */
+#toc ul li a {
+  font-size: 0.85em;
+  display: block;
+  padding: 5px 0;
+}
+
+/*  Photo blocks
+-------------------------------------- */
+/* line 3, _images.scss */
+.photo-block {
+  width: 1020px;
+  float: left;
+  /* Test for extra width */
+  margin-left: -150px;
+  margin-top: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  font-family: "source-sans-pro", Arial, sans-serif;
+  font-size: 0.8em;
+  font-weight: 200;
+  text-align: center;
+}
+/* line 17, _images.scss */
+.photo-block h4 a {
+  color: #888;
+  text-transform: uppercase;
+  font-size: .8em;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  float: left;
+  width: 100%;
+}
+/* line 26, _images.scss */
+.photo-block .single_photo {
+  float: left;
+  width: 1020px;
+}
+/* line 30, _images.scss */
+.photo-block .single_photo_center {
+  width: 35%;
+  float: none;
+  margin: 0 auto;
+}
+/* line 35, _images.scss */
+.photo-block .double_photo {
+  float: left;
+  width: 505px;
+}
+/* line 39, _images.scss */
+.photo-block figure.double_photo.left {
+  margin-right: 3px;
+}
+/* line 42, _images.scss */
+.photo-block figure.double_photo.right {
+  margin-left: 3px;
+}
+/* line 45, _images.scss */
+.photo-block p a {
+  background-color: #333;
+  padding: 3px 5px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  border: 1px solid #555555;
+}
+/* line 53, _images.scss */
+.photo-block p a:hover {
+  background-color: #666;
+  border: 1px solid #999;
+  color: #fff;
+}
+/* line 58, _images.scss */
+.photo-block figure {
+  float: left;
+  /*
+  	  		border: 1px solid #333;
+  	  		border-color: #cc092f; 
+  	  		border-width: thin;
+  	  		border-style: solid; 
+  */
+}
+/* line 67, _images.scss */
+.photo-block a figure img:hover {
+  border: 1px solid #cc092f;
+}
+
+/*
+	Superscript and footnotes
+*/
+/* line 4, _footnotes.scss */
+sup {
+  vertical-align: top;
+  height: 0;
+  line-height: 1;
+  bottom: 1em;
+  font-size: .7em;
+  color: #cc092f;
+}
+/* line 12, _footnotes.scss */
+sup a {
+  padding: 2px;
+  vertical-align: top;
+}
+
+/* line 18, _footnotes.scss */
+ol.footnotes {
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 20px;
+  font-size: 0.8em;
+  line-height: 2.0em;
+}
+/* line 25, _footnotes.scss */
+ol.footnotes li {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+/*
+  asides stuff
+*/
+/* line 4, _asides.scss */
+aside.lowlight {
+  opacity: .3;
+}
+
+/* line 8, _asides.scss */
+aside.lowlight:hover {
+  opacity: 1;
+}
+
+/* line 12, _asides.scss */
+aside h3 {
+  text-align: center;
+  padding-left: 20px;
+}
+
+/*
+  Assignment of font to body.
+
+  The first one assigns fonts to the browsers that support @fontface
+  The second assigns standard fonts to browsers that don't
+*/
+/* line 7, _misc.scss */
+.fontface body {
+  font-family: '$font-family';
+  src: url("$font-family.eot?") format("eot"), url("$font-family.woff") format("woff"), url("$font-family.ttf") format("truetype"), url("$font-family.svg#$font-name") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100%;
+  line-height: 1.75;
+}
+
+/*
+  Formatting for different tags and elements
+*/
+/* line 16, _misc.scss */
+p {
+  margin-top: 15px;
+}
+/* line 18, _misc.scss */
+p em {
+  font-style: italic;
+}
+
+/* line 23, _misc.scss */
+.center {
+  text-align: center;
+}
+
+/* line 27, _misc.scss */
+strong {
+  font-weight: bold;
+  font-style: normal;
+}
+
+/*
+	Media queries support
+	
+	We define the following media queries based on width for the website and use media queries to fix some glaring issues 
+	in the default stylesheets. 
+	
+	* Larger than 1024 (large desktop screens)
+	* Between 768 and 1024 -- Larger than 768 and smaller than 1023 (this should be an ipad in landscape mode)
+	* between 600 and 768 -- larger than 600 and smaller than  767 (this should be an ipad in portrait mode)
+	* between 480 and 600 -- Larger than 480 and smaller than 599 (iPhone in landscape mode)
+	* smaller than 480 -- (iPhone in portrait mode) 
+	
+	Add this to the head of each document to make sure devices honor media queries. 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	The following sample of a mediaquery works around browsers that don't support them. 
+	
+	@media="only screen and (min-width: 401px) and (max-width: 600px)"
+*/
+
+/*# sourceMappingURL=main.css.map */
