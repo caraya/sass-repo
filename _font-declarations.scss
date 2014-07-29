@@ -14,17 +14,6 @@ Want the result to look like this, how do we handle if the browser uses a format
 
 }
 */
-@mixin font-declaration($font-family, $weight:normal, $style:normal) {
-  font-family: '$font-family';
-  src:
-    url('$font-family.eot?') format('eot'),
-    url('$font-family.woff') format('woff'),
-    url('$font-family.ttf') format('truetype'),
-    url('$font-family.svg#$font-name') format('svg');
-  font-weight: $weight;
-  font-style: $style;
-
-}
 
 // We're using a different font for headings. Declare it here to keep all font declarations in one place
 .fontface h1
