@@ -1,0 +1,40 @@
+@include "variables";
+@include "mixins";
+@include "normalize";
+
+body {
+  @include "fixed-size";
+  position: relative;
+}
+
+img {
+
+  @include "fixed-size";
+  /*
+  Using a value greater than 10 in our z-index for images allows for better compositing and blending.
+
+  Since the image is supposed to be the lowest in the stack for the page, we're safe using a value greater than 1.
+  If there's additional images (that we can use for masking)
+  */
+  z-index:-10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  }
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  color: #48d; }
+
+
+/**** The Book ****/
+
+section.text, section.license {
+  position:absolute;
+  top: 4em;
+  left: 2em;
+  width: 15em; }
+
+section.license {width: 11.5em;}
+section.license p {font-size: 0.45em; line-height: 1.8em; margin-bottom: 1em;}

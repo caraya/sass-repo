@@ -1,19 +1,41 @@
-/*
-We use a single file to declare all our Mixins to make sure we know where to find them rather
-than have to search all files
-*/
-@mixin font-declaration($font-family, $weight:normal, $style:normal) {
-  font-family: '$font-family';
+// We use a single file to declare all our Mixins to make sure we know where to
+// find them rather than have to search all files
+
+// Font declaration for standard web
+@mixin font-declaration($font-family,  $font-file-name, $weight:normal, $style:normal) {
+  font-family: '#{$font-family}';
   src:
-    url('$font-family.eot?') format('eot'),
-    url('$font-family.woff') format('woff'),
-    url('$font-family.ttf') format('truetype'),
-    url('$font-family.svg#$font-name') format('svg');
+    local('#{$font-file-name}.ttf') format('truetype'),
+    url('#{$font-file-name}.ttf') format('truetype'),
+    url('#{$font-file-name}.woff') format('woff');
   font-weight: $weight;
   font-style: $style;
 
 }
 
+// Font declaration for ebook-related fonts for which we only need the local truetype font
+@mixin ebook-font-declaration($font-family,  $font-file-name, $weight:normal, $style:normal) {
+  font-family: '#{$font-family}';
+  src:
+    local('#{$font-file-name}.ttf') format('truetype');
+  font-weight: $weight;
+  font-style: $style;
+
+}
+
+// This mixin uses the two font declrations above + the is_ebook variable
+// declared in _varaiables.scss to add the right font declaration
+
+@mixin declare-font($font-family,  $font-file-name, $weight:normal, $style:normal) {
+  @debug "$is_ebook evaluates to #{$is_ebook}";
+  @if  ($is_ebook) {
+    @include ebook-font-declaration($font-family,  $font-file-name, $weight:normal, $style:normal);
+
+  }
+  @else {
+    @include font-declaration($font-family,  $font-file-name, $weight:normal, $style:normal);
+  }
+}
 
 @mixin solid-thin() {
   border-width: thin;
@@ -26,19 +48,23 @@ than have to search all files
 //
 // $cols indicates the number of columns to use
 // $gap indicates the gap between the columns (as in 20px)
+// $fill indicate
 
-@mixin column-attribs ($cols, $gap){
+@mixin column-attribs ($cols, $gap, $fill: balance, $span: all){
   -moz-column-count: $cols;
   -moz-column-gap: $gap;
   -webkit-column-count: $cols;
   -webkit-column-gap: $gap;
   column-count: $cols;
   column-gap: $gap;
+  /* Properties below have uncertain support */
+  -moz-column-fill: $fill;
+  column-fill: $fill;
+  webkit-column-span: $span;
+  column-span: $span;
 }
 
-/*
-The following mixins are from http://web-design-weekly.com/2013/05/12/handy-sass-mixins/
-*/
+// The following mixins are from http://web-design-weekly.com/2013/05/12/handy-sass-mixins/
 
 @mixin clearfix() {
     &:before,
@@ -68,9 +94,7 @@ The following mixins are from http://web-design-weekly.com/2013/05/12/handy-sass
   height: $height;
 }
 
-/*
-  Positioning mixins
-*/
+// Positioning mixins
 // http://codepen.io/piouPiouM/pen/bLmkz
 // In response to the following article:
 // http://hugogiraudel.com/2013/08/05/offsets-sass-mixin/
@@ -111,222 +135,5 @@ The following mixins are from http://web-design-weekly.com/2013/05/12/handy-sass
 @mixin fixed($top: $position-default-top, $right: $position-default-right,
                 $bottom: $position-default-bottom, $left: $position-default-left) {
   @include _position(fixed, $top, $right, $bottom, $left);
-}
-
-// Media queries mixins
-// See https://raw.githubusercontent.com/paranoida/sass-mediaqueries/master/_media-queries.scss
-// for the fully commented code
-// See http://paranoida.github.io/sass-mediaqueries/
-// for tutorial and instructions
-
-// ---------------------------------------------------------------------------------------------------------------------
-// --- screen ----------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------------
-
-@mixin screen($resMin, $resMax)
-{
-  @media screen and (min-width: $resMin) and (max-width: $resMax)
-  {
-    @content;
-  }
-}
-
-@mixin max-screen($res)
-{
-  @media screen and (max-width: $res)
-  {
-    @content;
-  }
-}
-
-@mixin min-screen($res)
-{
-  @media screen and (min-width: $res)
-  {
-    @content;
-  }
-}
-
-@mixin screen-height($resMin, $resMax)
-{
-  @media screen and (min-height: $resMin) and (max-height: $resMax)
-  {
-    @content;
-  }
-}
-
-@mixin max-screen-height($res)
-{
-  @media screen and (max-height: $res)
-  {
-    @content;
-  }
-}
-
-@mixin min-screen-height($res)
-{
-  @media screen and (min-height: $res)
-  {
-    @content;
-  }
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-// --- hdpi ------------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------------
-
-// Based on bourbon hidpi-media-queries file (https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_hidpi-media-query.scss)
-// HiDPI mixin. Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/)
-
-@mixin hdpi($ratio: 1.3)
-{
-  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
-  only screen and (min--moz-device-pixel-ratio: $ratio),
-  only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
-  only screen and (min-resolution: #{round($ratio*96)}dpi),
-  only screen and (min-resolution: #{$ratio}dppx)
-  {
-    @content;
-  }
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-// --- iphone ----------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------------
-
-@mixin iphone3($orientation: all)
-{
-  $deviceMinWidth: 320px;
-  $deviceMaxWidth: 480px;
-  $devicePixelRatio: 1;
-
-  @if $orientation == all
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio)
-    {
-      @content;
-    }
-  }
-  @else
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation})
-    {
-      @content;
-    }
-  }
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-// --- iphone-retina ---------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------------
-
-@mixin iphone4($orientation: all)
-{
-  $deviceMinWidth: 320px;
-  $deviceMaxWidth: 480px;
-  $devicePixelRatio: 2;
-  $deviceAspectRatio: '2/3';
-
-  @if $orientation == all
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio)
-    {
-      @content;
-    }
-  }
-  @else
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: 2/3) and (orientation:#{$orientation})
-    {
-      @content;
-    }
-  }
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-// --- iphone-5 --------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------------
-
-@mixin iphone5($orientation: all)
-{
-  $deviceMinWidth: 320px;
-  $deviceMaxWidth: 568px;
-  $devicePixelRatio: 2;
-  $deviceAspectRatio: '40/71';
-
-  @if $orientation == all
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio)
-    {
-      @content;
-    }
-  }
-  @else
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio) and (orientation:#{$orientation})
-    {
-      @content;
-    }
-  }
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-// --- ipads (all) -----------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------------
-
-@mixin ipad($orientation: all)
-{
-  $deviceMinWidth: 768px;
-  $deviceMaxWidth: 1024px;
-
-  @if $orientation == all
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    {
-      @content;
-    }
-  }
-  @else
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (orientation:#{$orientation})
-    {
-      @content;
-    }
-  }
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-// --- ipad-retina -----------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------------
-
-@mixin ipad-retina($orientation: all)
-{
-  $deviceMinWidth: 768px;
-  $deviceMaxWidth: 1024px;
-  $devicePixelRatio: 2;
-
-  @if $orientation == all
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio)
-    {
-      @content;
-    }
-  }
-  @else
-  {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation})
-    {
-      @content;
-    }
-  }
 }
 

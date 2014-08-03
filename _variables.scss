@@ -1,3 +1,9 @@
+// Variables to control ebook usage
+// remember to make $epub true if you're working with ebook content
+$epub: null !default;
+$kindle: null !default;
+$is_ebook:  ($epub: true) or ($kindle: true);
+
 // From normalize.scss
 // Set to true if you want to add support for IE6 and IE7
 // Notice: setting to true might render some elements
@@ -5,7 +11,7 @@
 $legacy_support_for_ie: false !default; // Used also in Compass
 
 
-// Set the default font family here so you don't have to override it later
+// Set the default font family here. You will override it when declaring fonts
 $normalized_font_family: sans-serif !default;
 
 $normalize_headings: true !default;

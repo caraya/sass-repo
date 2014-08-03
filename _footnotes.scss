@@ -8,16 +8,15 @@ sup {
   bottom: 1em;
   font-size: .7em;
   color: $red;
-	
+
 	a {
 	  padding: 2px;
 	  vertical-align: top;
+        text-decoration: none;        /* No text decoration for footnote links*/
 	}
 }
 
-ol.footnotes { 
-//	width: 85%;
-//	margin: 0 auto; 
+ol.footnotes {
 	@include column-attribs (2, 20px);
 	font-size: 0.8em;
 	line-height: 2.0em;
@@ -27,4 +26,4 @@ ol.footnotes {
  		list-style-position:inside;
 //		margin-left: 10px;
 	}
-} 
+}

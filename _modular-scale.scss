@@ -1,11 +1,11 @@
 @import "modular-scale/ratios";
 
-// Font related variables
-$ms-base   : 16px !default;
-// $ms-base: 1em !default;
-$ms-ratio: $golden !default;
-
 @import "modular-scale/tests";
+
+// For modular scales
+//$ms-base   : 16px !default;
+$ms-base: 1em !default;
+$ms-ratio: $golden !default;
 
 @import "modular-scale/pow";
 @import "modular-scale/calc";

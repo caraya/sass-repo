@@ -2,27 +2,23 @@
   Headings
 */
 // We're using a different font for headings. Declare it here to keep all heading declarations in one place
-.fontface h1
-.fontface h2
-.fontface h3
-.fontface h4
-.fontface h5
-.fontface h6 {
-  @include font-declaration("museo-slab", 700, normal);
+.fontface body {
+  @include declare-font('Lato Regular', 'fonts/Lato-Reg', normal, normal);
 }
 
+h1, h2, h3, h4, h5, h6,
+{
+  @include declare-font('Lato Bold', 'fonts/Lato-Bol', 700, normal);
+}
 h1 {
   text-align: center;
-  font-weight:600;
 }
 
 h2 {
   margin-top: 60px;
   margin-bottom: 40px;
   padding-bottom: 10px;
-  border-bottom: 3px solid #000;
   margin-left: -60px;
-  width: 100%;
 }
 
 h3 {

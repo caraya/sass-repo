@@ -1,13 +1,16 @@
 /*
 Columns styles
+
+If we want to add additional classes to our columns, like the listed class under .columns3
+we just nest it as we would normally do with SASS
 */
 
-.csscolumns .columns2 {
+.columns2 {
   width: 100%;
 	@include column-attribs (2, 20px);
 }
 
-.csscolumns .columns3 {
+.columns3 {
   width: 100%;
   @include column-attribs (3, 10px);
 
