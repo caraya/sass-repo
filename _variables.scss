@@ -2,7 +2,7 @@
 // remember to make $epub true if you're working with ebook content
 $epub: null !default;
 $kindle: null !default;
-$is_ebook:  ($epub: true) or ($kindle: true);
+$is_ebook:  ($epub == true) or ($kindle == true);
 
 // From normalize.scss
 // Set to true if you want to add support for IE6 and IE7
